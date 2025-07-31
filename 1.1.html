@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MILIMANI SHOPPING MALL </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        /* === Base Styles === */
+        :root {
+            --primary-color: #0808de;
+            --secondary-color: #e2970b;
+            --accent-color: #009FFD;
+            --light-bg: #f8f9fa;
+            --dark-text: #097bed;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+
+        body {
+            line-height: 1.6;
+            color: var(--dark-text);
+        }
+
+        /* === Header & Navigation === */
+        .header {
+            background-color: rgb(7, 0, 149);
+            padding: 12px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: rgba(10, 210, 90, 0.923);
+            font-size: 2rem;
+            font-weight: bolder;
+            justify-content: center;
+
+        }
+
+        .logo i {
+            color: orangered;
+
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            transition: 0.3s ease;
+
+
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            background: var(--accent-color);
+            transform: scale(1.3);
+        }
+
+        /* === Hero Section === */
+        .hero {
+            height: 100vh;
+            background-image: url('stores/pic (18).webp');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: rgb(255, 255, 255);
+            margin-top: 70px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        /* === Features Grid === */
+        .features {
+            padding: 4rem 2rem;
+            background: var(--light-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 40px;
+            color: var(--primary-color);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: rgb(250, 246, 246);
+            padding: 3rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* === Store Directory === */
+        .stores {
+            padding: 4rem 2rem;
+        }
+
+        .store-filter {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1.5rem;
+            border: none;
+            border-radius: 20px;
+            background: var(--light-bg);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-btn.active {
+            border-radius: 20px;
+            background: rgb(91, 38, 248);
+
+        }
+
+        .store-grid {
+
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .store-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .store-image {
+            height: 200px;
+            background: #ddd;
+            position: relative;
+            overflow: hidden
+        }
+
+        .store-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .store-card:hover .store-image img {
+            transform: scale(1.1);
+        }
+
+        .store-info {
+            padding: 1.5rem;
+        }
+
+        .store-category {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        /* === Mall Map === */
+        .kiriri {
+            background-color: #eae7e7;
+            max-width: 1200px;
+
+            justify-content: center;
+            text-align: center;
+
+        }
+
+        .jjk {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            justify-content: center;
+            text-align: center;
+            gap: 2rem;
+            align-items: center;
+            padding: 3rem 3rem;
+            position: relative;
+
+        }
+
+        .section-h2 {
+            color: blue;
+            font-family: monospace;
+            font-size: 3rem;
+        }
+
+        .imagery {
+            width: 300px;
+            height: 200px;
+            border: 0.5px black solid;
+            border-radius: 5px;
+            background-color: antiquewhite;
+            overflow: hidden;
+            align-items: center;
+        }
+
+        .imagery img {
+            width: 298px;
+            height: 100px;
+            border: transparent;
+            border-radius: 5px;
+            transition-property: transform;
+            transition-timing-function: ease-in;
+
+        }
+
+        .imagery img:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 20px cornflowerblue;
+        }
+
+       
+       
+       
+       
+       
+       
+        /* === Contact Section === */
+        .contact {
+            padding: 4rem 2rem;
+            background: var(--light-bg);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: move;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: var(--accent-color);
+            box-shadow: 0 0 25px blanchedalmond;
+        }
+
+        /* === Footer === */
+        .footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 4rem 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: rgb(228, 223, 223);
+            font-size: 1.5rem;
+        }
+
+        /* === Responsive Design === */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <i class="fas fa-shopping-cart"></i>
+                NGARE ENTERPRISE
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#stores">Stores</a></li>
+                <li><a href="#dining">Dining</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Experience Premium Shopping</h1>
+            <p>You'll discover 200+ stores, fine dining, and entertainment all under one roof</p>
+            <div style="margin-top: 2rem;">
+                <button class="btn">Explore Stores</button>
+                <button class="btn" style="background: var(--accent-color);">View Events</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="features">
+        <h2 class="section-title">Why Choose Ngare Enterprise?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-parking feature-icon"></i>
+                <h3>Free Parking</h3>
+                <p>2000+ parking spaces with 24/7 security surveillance</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-wifi feature-icon"></i>
+                <h3>Free WiFi</h3>
+                <p>High-speed internet access throughout the mall</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-concierge-bell feature-icon"></i>
+                <h3>Premium Services</h3>
+                <p>Personal shopping assistance & valet services</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Store Directory -->
+    <section class="stores" id="stores">
+        <h2 class="section-title">Store Directory</h2>
+        <div class="store-filter">
+            <button class="filter-btn active ">All</button>
+            <button class="filter-btn ">Fashion</button>
+            <button class="filter-btn">Electronics</button>
+            <button class="filter-btn">Dining</button>
+        </div>
+        <div class="store-grid">
+            <!-- Store Cards would be dynamically generated -->
+            <div class="store-card">
+                <div class="store-image">
+                    <img src="stores/pic (19).webp" alt="">
+                </div>
+                <div class="store-info">
+                    <span class="store-category">Fashion</span>
+                    <h4>Designer Boutique,Groceries & Electronics</h4>
+                    <p>Level 2, Section B</p>
+                    <p>Open: 9AM - 9PM</p>
+                </div>
+            </div>
+            <!-- Add more store cards -->
+        </div>
+    </section>
+
+    <!-- Interactive Map -->
+    <section class="kiriri">
+        <h2 class="section-h2">OUR SERVICES</h2>
+        <div class="jjk">
+
+            <div class="imagery">
+                <img src="3d/IMG-20250630-WA0047.jpg" alt="">
+                <h3>Shoes</h3>
+                <p>All varieties of shoes are available such as sneakers,sandles,timberlands...etc</p>
+            </div>
+            <div class="imagery">
+                <img src="3d/IMG-20250629-WA0096.jpg" alt="">
+                <h3>Clothings</h3>
+                <p>We sell over <span style="color: red;"> 90% </span>of fitting cloth types incluing uniforms.</p>
+            </div>
+            <div class="imagery">
+                <img src="3d/IMG-20250630-WA0061.jpg" alt="">
+                <h3>Utencils</h3>
+                <p>All varieties of Utencils are available from different companies makes.</p>
+            </div>
+            <div class="imagery">
+                <img src="3d/IMG-20250701-WA0028.jpg" alt="">
+                <h3>cooking Equipments</h3>
+                <p>Include Japanese,Chinese and from Europe makes which are very flexible</p>
+            </div>
+            <div class="imagery">
+                <img src="stores/pic (16).webp" alt="">
+                <h3>Electic gudgets</h3>
+                <P> They Include all latest vesrions of android phones,laptops,Tvs,Woofer..and more </P>
+            </div>
+            <div class="imagery">
+                <img src="stores/pic (10).webp" alt="">
+                <h3>pharmacitical Appliance</h3>
+                <p>We also offer pharmacitical drugs prescribed.</p>
+
+            </div>
+            <div class="imagery">
+                <img src="stores/pic (22).webp" alt="">
+                <h3>Cleaning Tools</h3>
+                <p>various categories available both for house,compound,washrooms and more.</p>
+            </div>
+            <div class="imagery">
+                <img src="stores/pic (28).webp" alt="">
+                <h3>Spare Parts</h3>
+                <p>About <span style="color: red;">75%</span> of various vehicle spare part now available.</p>
+            </div>
+            <div class="imagery">
+                <img src="3d/IMG-20250703-WA0070.jpg" alt="">
+                <h3>Electronics Devices</h3>
+                <p>All categories are well described based on your desire.</p>
+            </div>
+            <div class="imagery">
+                <img src="stores/pic (5).webp" alt="">
+                <h3>Vegetables & Fruits</h3>
+                <P>Fresh and well preserved for all customers.</P>
+            </div>
+            <div class="imagery">
+                <img src="3d/IMG-20250702-WA0018.jpg" alt="">
+                <h3>Electic shower</h3>
+                <p>They Include of different types and quality based on choise and price.</p>
+            </div>
+            <div class="imagery">
+                <img src="3d/IMG-20250629-WA0092.jpg" alt="">
+                <h3>Bed decorations</h3>
+                <p>All available such as pillows,bedcovers,duvets of all designs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-grid">
+            <div>
+                <h3>Visit Us</h3>
+                <p>Ngare Shopping Complex<br>
+                    Eldoret CBD, Kenya<br>
+                    Open Daily: 8AM - 10PM</p>
+            </div>
+            <form class="contact-form">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea rows="5" placeholder="Message" required></textarea>
+                <button class="btn" type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <h4>NGARE ENTERPRISE</h4>
+                <p>East Africa's Premier Shopping Destination</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                    <li><a href="#terms">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Connect With Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Interactive Features
+        // Store Filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                // Add filtering logic here
+            });
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
